@@ -30,6 +30,7 @@ github_username:  ducdz1m2
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
 remote_theme: jekyll/minima
 # plugins:
   # - jekyll-feed
