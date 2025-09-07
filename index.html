@@ -3,23 +3,50 @@ layout: default
 title: Trang chủ
 ---
 
-<h1>Bài viết</h1>
-<ul>
+<h1 style="text-align:center; margin-bottom: 40px;">Bài viết mới nhất</h1>
+
+<ul style="list-style:none; padding:0;">
   {% for post in paginator.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <li style="display:flex; align-items:flex-start; margin-bottom:30px; border-bottom:1px solid #eee; padding-bottom:20px;">
+      
+      {% if post.image %}
+        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:20px;">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width:150px; height:100px; object-fit:cover; border-radius:8px;">
+        </a>
+      {% else %}
+        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:20px;">
+          <img src="assets/images/posts/default.png" alt="{{ post.title }}" style="width:150px; height:100px; object-fit:cover; border-radius:8px;">
+        </a>
+      {% endif %}
+      
+      <div>
+        <a href="{{ post.url | relative_url }}" style="font-size:1.2rem; font-weight:bold; text-decoration:none; color:#333;">
+          {{ post.title }}
+        </a>
+        <br>
+        <time class="timeago" datetime="{{ post.date | date_to_xmlschema }}" style="color:#888; font-size:0.9rem;">
+          {{ post.date | date: "%Y-%m-%d %H:%M" }}
+        </time>
+      </div>
+
     </li>
   {% endfor %}
 </ul>
 
-<div class="pagination">
+<div class="pagination" style="text-align:center; margin-top:40px;">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">← Trang trước</a>
+    <a href="{{ paginator.previous_page_path | relative_url }}" style="margin-right:10px;">← Trang trước</a>
   {% endif %}
-
   <span>Trang {{ paginator.page }} / {{ paginator.total_pages }}</span>
-
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Trang sau →</a>
+    <a href="{{ paginator.next_page_path | relative_url }}" style="margin-left:10px;">Trang sau →</a>
   {% endif %}
 </div>
+
+<!-- Thêm JS ở cuối trang -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    timeago.render(document.querySelectorAll('.timeago'), 'vi'); // 'vi' nếu muốn tiếng Việt
+  });
+</script>

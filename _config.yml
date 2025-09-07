@@ -32,9 +32,12 @@ plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-timeago
 remote_theme: jekyll/minima
 google_analytics: G-QXZDDR45K9
 
+timeago:
+  lang: vi
 
 paginate: 5              # số bài trên 1 trang
 paginate_path: "/page:num/"  # đường dẫn phân trang
