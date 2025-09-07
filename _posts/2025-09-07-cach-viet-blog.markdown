@@ -13,12 +13,14 @@ Xin chào anh em, hôm nay tui vừa bắt đầu viết blog nên là cũng có
 để tạo nội dung nè. Tui đã bold topic lên để dễ nhìn, anh em tham chiếu nhé.
 
 ## **Để highlight một từ nào đó trong câu** thì dùng: 
+<pre>
 {% raw %}
-\`Topic nao do\`  *<- thường thì nó nằm kế `số 1` và trên `nút tab` của máy á*
+`Topic nao do`  *<- thường thì nó nằm kế `số 1` và trên `nút tab` của máy á*
 {% endraw %}
+</pre>
 ## **Để highlight cú pháp của một ngôn ngữ lập chỉnh**, ví dụ như ruby thì dùng cú pháp:
 
-
+<pre>
 {% raw %}
 {% highlight ruby %}
 
@@ -26,7 +28,7 @@ Xin chào anh em, hôm nay tui vừa bắt đầu viết blog nên là cũng có
 
 {% endhighlight %}
 {% endraw %}
-
+</pre>
 
 Output sẽ trông như thế này:
 {% highlight ruby %}
@@ -110,7 +112,7 @@ thì nó ra:
     2. sub 2
 2. Second...
 
-(Nhớ là 2 tab lận nhé anh em)
+(Nhớ là `2 tab lận` nhé anh em)
 
 
 ... (đang cập nhật thêm)
