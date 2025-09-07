@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Tôi sẽ học những thứ khó và sau đó giải thích nó lại dễ hiểu tại đây. Đồng thời,
   đây cũng là nơi để tôi tham chiếu lại kiến thức của mình phòng khi tôi quên. Chủ đề khá đa dạng từ học lập trình,
   ngoại ngữ cho đến kỹ năng sống. Enjoy learning!!
-baseurl: "theochantoi" # the subpath of your site, e.g. /blog
+baseurl: "/theochantoi" # the subpath of your site, e.g. /blog
 url: "https://ducdz1m2.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ducdz1m2
 
