@@ -1,0 +1,101 @@
+/* Theme variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --header-bg: #f5f5f5;
+  --link-color: #007acc;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --header-bg: #1e1e1e;
+  --link-color: #8ab4f8;
+}
+
+/* Body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: sans-serif;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Search / Filter input */
+input#searchInput,
+select#categoryFilter {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px 12px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+input#searchInput::placeholder {
+  color: #888;
+}
+
+/* Tab buttons */
+.tab-btn {
+  display: inline-block;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: var(--header-bg);
+}
+
+.tab-btn.active {
+  background-color: #007acc;
+  color: white;
+  border-color: #007acc;
+}
+
+/* Tab content */
+.tab-content {
+  display: none; /* mặc định ẩn */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Post link inside tab/content list */
+.post-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.3s;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+}
+
+/* Post list items */
+.post-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
