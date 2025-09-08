@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Một số hàm hữu, mẹo vặt hữu ích khi mới bắt đầu với Ruby on rails"
+title:  "Một số chức năng, mẹo vặt hữu ích khi mới bắt đầu với Ruby on rails"
 date:   2025-09-08 05:51:01 +0700
 categories: jekyll update
 image: /assets/images/posts/meo-vat-ruby-on-rails.png
