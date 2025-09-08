@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Cách quản lý dự án phần mềm từ chuyên gia"
+title:  "Cách quản lý dự án phần mềm từ chuyên gia (phần 1)"
 date:   2025-09-08 19:45:01 +0700
 categories: ["Khác"]
 image: /assets/images/posts/quan-ly-nhan-su/thumbnail.png
