@@ -33,10 +33,13 @@
 <div id="google_translate_element" style="display:none;"></div>
 
 <script type="text/javascript">
-  
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
-      {pageLanguage: 'vi', includedLanguages: 'vi,en', autoDisplay: false},
+      {
+        pageLanguage: 'vi',
+        includedLanguages: 'vi,en,ja,ko,fr,de', // thêm ngôn ngữ ở đây
+        autoDisplay: false
+      },
       'google_translate_element'
     );
   }
@@ -45,6 +48,7 @@
     var selectField = document.querySelector("select.goog-te-combo");
     if (selectField) {
       selectField.value = lang;
+      // tạo sự kiện "change" để Google Translate dịch
       selectField.dispatchEvent(new Event("change"));
     }
   }

@@ -360,6 +360,61 @@ h6 { font-size: 0.9rem; color: var(--muted-color); }
   color: var(--text-color); /* đổi màu chữ khi hover */
   transform: translateY(-2px);
 }
+.language-switcher {
+  position: relative;
+}
+
+.lang-toggle {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--muted-border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 36px;
+}
+
+.lang-toggle .fi {
+  font-size: 1.2rem;
+}
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: var(--bg-color);
+  border: 1px solid var(--muted-border);
+  border-radius: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 2000;
+
+  /* thêm mới */
+  min-width: 140px;   /* đủ cho chữ dài */
+  white-space: nowrap; /* không xuống dòng */
+}
+.lang-menu li {
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.lang-menu li:hover {
+  background: var(--btn-hover-bg);
+}
+
+.language-switcher.open .lang-menu {
+  display: block;
+}
 
 
 /* Mobile: đặt sát nút theme */

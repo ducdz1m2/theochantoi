@@ -32,11 +32,22 @@
       <i class="fas fa-moon" aria-hidden="true"></i>
     </button>
 
-    <!-- language switcher -->
+<!-- language switcher -->
 <div class="language-switcher">
-  <button onclick="changeLanguage('vi')"><span class="fi fi-vn"></span></button>
-  <button onclick="changeLanguage('en')"><span class="fi fi-gb"></span></button>
+  <button class="lang-toggle" aria-label="Đổi ngôn ngữ">
+    <span class="fi fi-gb"></span> <!-- mặc định English -->
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <ul class="lang-menu">
+    <li onclick="changeLanguage('vi')"><span class="fi fi-vn"></span> Tiếng Việt</li>
+    <li onclick="changeLanguage('en')"><span class="fi fi-gb"></span> English</li>
+    <li onclick="changeLanguage('ja')"><span class="fi fi-jp"></span> 日本語</li>
+    <li onclick="changeLanguage('ko')"><span class="fi fi-kr"></span> 한국어</li>
+    <li onclick="changeLanguage('fr')"><span class="fi fi-fr"></span> Français</li>
+    <li onclick="changeLanguage('de')"><span class="fi fi-de"></span> Deutsch</li>
+  </ul>
 </div>
+
 
   </div>
 
@@ -44,4 +55,35 @@
   <link rel="icon" href="{{ '/favicon.ico' | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Lấy ngôn ngữ mặc định từ trình duyệt
+  let userLang = navigator.language || navigator.userLanguage; 
+  // Ví dụ trả về "vi-VN" hoặc "en-US"
+  
+  if (userLang.startsWith("vi")) {
+    changeLanguage("vi");
+  } else {
+    changeLanguage("en");
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const switcher = document.querySelector(".language-switcher");
+  const toggleBtn = switcher.querySelector(".lang-toggle");
+
+  toggleBtn.addEventListener("click", () => {
+    switcher.classList.toggle("open");
+  });
+
+  // click ra ngoài thì đóng
+  document.addEventListener("click", (e) => {
+    if (!switcher.contains(e.target)) {
+      switcher.classList.remove("open");
+    }
+  });
+});
+</script>
+
 </header>
