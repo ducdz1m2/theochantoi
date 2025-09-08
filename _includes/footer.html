@@ -1,24 +1,31 @@
-<footer class="site-footer h-card">
-  <div class="wrapper">
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <p>© {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-        <p>
-          <a href="{{ "/about/" | relative_url }}">Về tôi</a> |
-          <a href="https://github.com/{{ site.github_username }}">GitHub</a> |
-          <a href="https://facebook.com/{{ site.facebook_username }}">Facebook</a>
-        </p>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
+<footer class="site-footer h-card" style="background:#222; color:#eee; padding:40px 20px; font-family:sans-serif;">
+  <div class="wrapper" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+    
+    <!-- Cột 1: Thông tin bản quyền & link -->
+    <div class="footer-col footer-col-1" style="flex:1; min-width:200px;">
+      <h2 style="font-size:1.2rem; margin-bottom:10px;">{{ site.title | escape }}</h2>
+      <p style="margin:5px 0; font-size:0.9rem;">© {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <p style="margin:5px 0; font-size:0.9rem;">
+        <a href="{{ "/about/" | relative_url }}" style="color:#eee; text-decoration:none; margin-right:10px;">Về tôi</a>
+        <a href="https://github.com/{{ site.github_username }}" style="color:#eee; text-decoration:none; margin-right:10px;">GitHub</a>
+        <a href="https://facebook.com/{{ site.facebook_username }}" style="color:#eee; text-decoration:none;">Facebook</a>
+      </p>
     </div>
+
+    <!-- Cột 2: Social icons (nếu bạn có include social.html) -->
+    <div class="footer-col footer-col-2" style="flex:1; min-width:200px;">
+      {%- include social.html -%}
+    </div>
+
+    <!-- Cột 3: Mô tả site -->
+    <div class="footer-col footer-col-3" style="flex:1; min-width:200px;">
+      <p style="font-size:0.9rem; line-height:1.5;">{{ site.description | escape }}</p>
+    </div>
+    
+  </div>
+  
+  <!-- Dòng copyright nhỏ -->
+  <div style="text-align:center; margin-top:30px; font-size:0.8rem; color:#aaa;">
+    Designed by {{ site.title | escape }}
   </div>
 </footer>
