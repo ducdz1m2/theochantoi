@@ -6,8 +6,7 @@ categories: ["Tiếng Nhật"]
 image: /assets/images/posts/cai-dat-bo-go-tieng-nhat/bo-go-tieng-nhat.png
 author: Lê Ngọc Đức
 description: "Hướng dẫn cài đặt bộ gõ tiếng Nhật trên window 10/11"
-tags: [Tiếng Nhật, helper, blog, seo, bàn phím]
-keywords: "Tiếng Nhật, bộ gõ phím, bàn phím, lập trình"
+tags: [Tiếng Nhật, helper, blog, bàn phím]
 ---
 
 Hi anh em, <br>

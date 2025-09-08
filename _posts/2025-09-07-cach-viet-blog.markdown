@@ -5,8 +5,7 @@ date:   2025-09-07 15:26:01 +0700
 categories: ["Khác"]
 author: Lê Ngọc Đức
 description: "Hướng dẫn cú pháp viết blog với Jekyll: highlight code, chèn file, chèn ảnh, danh sách, ..."
-tags: [jekyll, markdown, blog, seo]
-keywords: "jekyll blog, viết blog với jekyll, markdown jekyll, seo jekyll"
+tags: [jekyll, markdown, blog]
 ---
 
 Xin chào anh em, hôm nay tui vừa bắt đầu viết blog nên là cũng có tìm hiểu rồi note lại một số cú pháp

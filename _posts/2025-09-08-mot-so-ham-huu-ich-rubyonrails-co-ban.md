@@ -6,8 +6,7 @@ categories: ["Ruby on Rails"]
 image: /assets/images/posts/meo-vat-ruby-on-rails.png
 author: Lê Ngọc Đức
 description: "Hướng dẫn một số cách tiện lợi để làm việc với ruby on rails, bootstrap5 cho người mới bắt đầu"
-tags: [ruby on rails, helper, blog, seo]
-keywords: "ruby on rails, mẹo vặt hữu ích, lập trình"
+tags: [ruby on rails, helper, blog]
 ---
 
 Hí anh em, <br>
