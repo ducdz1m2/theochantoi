@@ -6,10 +6,11 @@ pagination:
   per_page: 5
 ---
 
-<h1 style="text-align:center; margin-bottom:40px;">Bài viết mới nhất</h1>
-<div style="text-align:center; margin-bottom:40px;">
-  <input type="text" id="searchInput" placeholder="Tìm kiếm bài viết..." style="padding:8px 12px; width:300px; border-radius:5px; border:1px solid #ccc;">
-  <select id="categoryFilter" style="padding:8px 12px; border-radius:5px; border:1px solid #ccc; margin-left:10px;">
+<h1 class="page-title">Bài viết mới nhất</h1>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Tìm kiếm bài viết...">
+  <select id="categoryFilter">
     <option value="">Tất cả danh mục</option>
     <option value="Ruby on Rails">Ruby on Rails</option>
     <option value="Tiếng Nhật">Tiếng Nhật</option>
@@ -17,24 +18,19 @@ pagination:
   </select>
 </div>
 
-<ul id="postList" style="list-style:none; padding:0;">
+<ul id="postList" class="post-list">
   {% for post in paginator.posts %}
-  <li class="post-item" data-title="{{ post.title | downcase }}"  data-categories="{{ post.categories | join:',' }}" style="display:flex; align-items:flex-start; margin-bottom:30px; border-bottom:1px solid #eee; padding-bottom:20px;">
-    {% if post.image %}
-      <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:20px;">
-        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width:150px; height:100px; object-fit:cover; border-radius:8px;">
-      </a>
-    {% else %}
-      <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:20px;">
-        <img src="assets/images/posts/default.png" alt="{{ post.title }}" style="width:150px; height:100px; object-fit:cover; border-radius:8px;">
-      </a>
-    {% endif %}
+  <li class="post-item" data-title="{{ post.title | downcase }}" data-categories="{{ post.categories | join:',' }}">
+    <a href="{{ post.url | relative_url }}" class="thumb">
+      {% if post.image %}
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% else %}
+        <img src="assets/images/posts/default.png" alt="{{ post.title }}">
+      {% endif %}
+    </a>
     <div>
-      <a href="{{ post.url | relative_url }}" style="font-size:1.2rem; font-weight:bold; text-decoration:none; color:#333;">
-        {{ post.title }}
-      </a>
-      <br>
-      <time class="timeago" datetime="{{ post.date | date_to_xmlschema }}" style="color:#888; font-size:0.9rem;">
+      <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a><br>
+      <time class="timeago post-date" datetime="{{ post.date | date_to_xmlschema }}">
         {{ post.date | date: "%Y-%m-%d %H:%M" }}
       </time>
     </div>
@@ -42,48 +38,42 @@ pagination:
   {% endfor %}
 </ul>
 
-
-<div class="pagination" style="text-align:center; margin-top:40px;">
+<div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" style="margin-right:10px;">← Trang trước</a>
+    <a href="{{ paginator.previous_page_path | relative_url }}">← Trang trước</a>
   {% endif %}
   <span>Trang {{ paginator.page }} / {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" style="margin-left:10px;">Trang sau →</a>
+    <a href="{{ paginator.next_page_path | relative_url }}">Trang sau →</a>
   {% endif %}
 </div>
 
-<hr style="margin:50px 0; border:none; border-top:1px solid #ccc;">
+<hr>
 
-<h2 style="text-align:center; margin-bottom:20px;">Danh mục bài viết</h2>
+<h2>Danh mục bài viết</h2>
 
 <!-- Tab buttons -->
-<div style="text-align:center; margin-bottom:30px;">
+<div class="search-bar">
   <button class="tab-btn" data-tab="RubyOnRails">Ruby on Rails</button>
   <button class="tab-btn" data-tab="TiengNhat">Tiếng Nhật</button>
   <button class="tab-btn" data-tab="Khac">Khác</button>
 </div>
 
 <!-- Tab contents -->
-<div id="RubyOnRails" class="tab-content" style="display:none; padding:0 20px;">
+<div id="RubyOnRails" class="tab-content" style="display:none;">
   {% assign posts_in_cat = site.posts | where_exp:"post","post.categories contains 'Ruby on Rails'" | sort:"date" | reverse %}
   {% for post in posts_in_cat limit:5 %}
-    <div style="display:flex; align-items:flex-start; margin-bottom:15px;">
-      {% if post.image %}
-        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:10px;">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width:80px; height:60px; object-fit:cover; border-radius:5px;">
-        </a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:10px;">
-          <img src="assets/images/posts/default.png" alt="{{ post.title }}" style="width:80px; height:60px; object-fit:cover; border-radius:5px;">
-        </a>
-      {% endif %}
+    <div class="post-item">
+      <a href="{{ post.url | relative_url }}" class="thumb">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        {% else %}
+          <img src="assets/images/posts/default.png" alt="{{ post.title }}">
+        {% endif %}
+      </a>
       <div>
-        <a href="{{ post.url | relative_url }}" style="font-weight:bold; color:#007acc; text-decoration:none;">
-          {{ post.title }}
-        </a>
-        <br>
-        <time class="timeago" datetime="{{ post.date | date_to_xmlschema }}" style="color:#888; font-size:0.8rem;">
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a><br>
+        <time class="timeago post-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y-%m-%d %H:%M" }}
         </time>
       </div>
@@ -91,25 +81,20 @@ pagination:
   {% endfor %}
 </div>
 
-<div id="TiengNhat" class="tab-content" style="display:none; padding:0 20px;">
+<div id="TiengNhat" class="tab-content" style="display:none;">
   {% assign posts_in_cat = site.posts | where_exp:"post","post.categories contains 'Tiếng Nhật'" | sort:"date" | reverse %}
   {% for post in posts_in_cat limit:5 %}
-    <div style="display:flex; align-items:flex-start; margin-bottom:15px;">
-      {% if post.image %}
-        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:10px;">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width:80px; height:60px; object-fit:cover; border-radius:5px;">
-        </a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:10px;">
-          <img src="assets/images/posts/default.png" alt="{{ post.title }}" style="width:80px; height:60px; object-fit:cover; border-radius:5px;">
-        </a>
-      {% endif %}
+    <div class="post-item">
+      <a href="{{ post.url | relative_url }}" class="thumb">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        {% else %}
+          <img src="assets/images/posts/default.png" alt="{{ post.title }}">
+        {% endif %}
+      </a>
       <div>
-        <a href="{{ post.url | relative_url }}" style="font-weight:bold; color:#007acc; text-decoration:none;">
-          {{ post.title }}
-        </a>
-        <br>
-        <time class="timeago" datetime="{{ post.date | date_to_xmlschema }}" style="color:#888; font-size:0.8rem;">
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a><br>
+        <time class="timeago post-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y-%m-%d %H:%M" }}
         </time>
       </div>
@@ -117,25 +102,20 @@ pagination:
   {% endfor %}
 </div>
 
-<div id="Khac" class="tab-content" style="display:none; padding:0 20px;">
+<div id="Khac" class="tab-content" style="display:none;">
   {% assign posts_in_cat = site.posts | where_exp:"post","post.categories contains 'Khác'" | sort:"date" | reverse %}
   {% for post in posts_in_cat limit:5 %}
-    <div style="display:flex; align-items:flex-start; margin-bottom:15px;">
-      {% if post.image %}
-        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:10px;">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width:80px; height:60px; object-fit:cover; border-radius:5px;">
-        </a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" style="flex-shrink:0; margin-right:10px;">
-          <img src="assets/images/posts/default.png" alt="{{ post.title }}" style="width:80px; height:60px; object-fit:cover; border-radius:5px;">
-        </a>
-      {% endif %}
+    <div class="post-item">
+      <a href="{{ post.url | relative_url }}" class="thumb">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        {% else %}
+          <img src="assets/images/posts/default.png" alt="{{ post.title }}">
+        {% endif %}
+      </a>
       <div>
-        <a href="{{ post.url | relative_url }}" style="font-weight:bold; color:#007acc; text-decoration:none;">
-          {{ post.title }}
-        </a>
-        <br>
-        <time class="timeago" datetime="{{ post.date | date_to_xmlschema }}" style="color:#888; font-size:0.8rem;">
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a><br>
+        <time class="timeago post-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y-%m-%d %H:%M" }}
         </time>
       </div>
@@ -143,9 +123,8 @@ pagination:
   {% endfor %}
 </div>
 
-
+<!-- JS Tab -->
 <script>
-// JS Tab: không cần event truyền, lấy data-tab
 document.addEventListener("DOMContentLoaded", function() {
   const tabs = document.querySelectorAll(".tab-btn");
   tabs.forEach(btn => {
@@ -169,11 +148,11 @@ document.addEventListener("DOMContentLoaded", function() {
   timeago.render(document.querySelectorAll('.timeago'), 'vi');
 });
 
-
+// Search + Filter
 document.addEventListener("DOMContentLoaded", function() {
   const searchInput = document.getElementById('searchInput');
   const categoryFilter = document.getElementById('categoryFilter');
-  const posts = document.querySelectorAll('.post-item'); // tất cả bài viết
+  const posts = document.querySelectorAll('.post-item');
 
   function filterPosts() {
     const keyword = searchInput.value.toLowerCase();
@@ -182,10 +161,8 @@ document.addEventListener("DOMContentLoaded", function() {
     posts.forEach(post => {
       const title = post.getAttribute('data-title');
       const categories = post.getAttribute('data-categories');
-
       const matchKeyword = title.includes(keyword);
       const matchCategory = category === "" || categories.includes(category);
-
       post.style.display = (matchKeyword && matchCategory) ? "flex" : "none";
     });
   }

@@ -1,32 +1,39 @@
 <header class="site-header">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- fontawesome (icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <div class="wrapper">
+  <div class="header-wrapper">
+    <!-- hidden checkbox (hamburger toggle) -->
+    <input type="checkbox" id="nav-trigger" class="nav-checkbox" />
+
+    <!-- hamburger label -->
+    <label for="nav-trigger" class="menu-label" aria-label="Toggle navigation">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </label>
+
+    <!-- site title -->
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+
+    <!-- nav (center) -->
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
     {%- assign page_titles = site.pages | map: 'title' | compact %}
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-
     {%- unless page_titles == empty %}
-      <nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-          </span>
-        </label>
-
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <ul class="nav-items">
         {% include nav-items.html paths = page_paths %}
-      </nav>
+      </ul>
+    </nav>
     {%- endunless %}
+
+    <!-- theme toggle (IMPORTANT: outside <nav>) -->
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" aria-pressed="false">
+      <i class="fas fa-moon" aria-hidden="true"></i>
+    </button>
   </div>
 
-<link rel="icon" href="{{ '/favicon.ico' | absolute_url }}">
-<link rel="shortcut icon" href="{{ '/favicon.ico' | absolute_url }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | absolute_url }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | absolute_url }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | absolute_url }}">
-<button id="theme-toggle">🌙 / ☀️</button>
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
-
+  <!-- favicons / css / js -->
+  <link rel="icon" href="{{ '/favicon.ico' | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
 </header>
