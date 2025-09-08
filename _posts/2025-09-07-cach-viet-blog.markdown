@@ -14,16 +14,16 @@ Xin chào anh em, hôm nay tui vừa bắt đầu viết blog nên là cũng có
 <h1><strong>Để highlight một từ nào đó trong câu</strong> thì dùng:</h1>
 <pre>
 {% raw %}
-`Topic nao do`  *<- thường thì nó nằm kế `số 1` và trên `nút tab` của máy á*
+`Some topic`  *<- usually it is next to `number 1` and above the `tab key` on the keyboard*
 {% endraw %}
 </pre>
 
-<h1><strong>Để highlight cú pháp của một ngôn ngữ lập chỉnh</strong>, ví dụ như ruby thì dùng cú pháp:</h1>
+<h1><strong>Để highlight cú pháp của một ngôn ngữ lập trình</strong>, ví dụ như ruby thì dùng cú pháp:</h1>
 <pre>
 {% raw %}
 {% highlight ruby %}
 
-#Code của bạn
+#Your code
 
 {% endhighlight %}
 {% endraw %}
@@ -41,13 +41,13 @@ print_hi('Tom')
 
 <h1><strong>Để tham chiếu link</strong> thì cũng có vài cách:</h1>
 {% raw %}
-Dùng: `[Tên hiển thị][biến]`, xong rồi cuối file phải định nghĩa: `[Tên biến]: URL`
+Use: `[Display name][variable]`, then at the end of the file you must define: `[Variable name]: URL`
 
-Ví dụ: `[jekyll-docs]: https://jekyllrb.com/docs/home`
+Example: `[jekyll-docs]: https://jekyllrb.com/docs/home`
 
-*HOẶC*
+*OR*
 
-Dùng: `[Tên hiển thị](url)`, tui thích dùng cách này, tiện vl.
+Use: `[Display name](url)`, I prefer this way, very convenient.
 {% endraw %}
 
 <h1><strong>Để chèn file</strong> (vd: pdf, ...) vào thì có vài cách:</h1>
@@ -68,10 +68,10 @@ Nếu chỉ chèn link thì:
 <h1><strong>Để chèn ảnh</strong> ta copy ảnh vào thư mục (vd: assets/images), rồi dùng thẻ:</h1>
 <pre>
 {% raw %}
-![Nội dung chữ thay thế]({{ '/assets/images/yasuo.png' | relative_url }})
+![Alt text content]({{ '/assets/images/yasuo.png' | relative_url }})
 {% endraw %}
 </pre>
-![Nội dung chữ thay thế]({{ '/assets/images/yasuo.png' | relative_url }})
+![Alt text content]({{ '/assets/images/yasuo.png' | relative_url }})
 
 <h1><strong>Để tạo nội dung dạng liệt kê, danh sách dạng chấm (không thứ tự)</strong> thì dùng dấu `-` ở đầu, muốn tạo sub-list thì anh em `Tab` vào là được.</h1>
 
@@ -99,6 +99,6 @@ thì nó ra:
     2. sub 2
 2. Second...
 
-(Nhớ là `2 tab lận` nhé anh em)
+(Nhớ là `2 tabs` nhé anh em)
 
 ... (đang cập nhật thêm)

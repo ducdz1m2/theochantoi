@@ -333,3 +333,46 @@ h6 { font-size: 0.9rem; color: var(--muted-color); }
   margin-right: 4px;
   display: inline-block;
 }
+
+/* Language switcher chung */
+.language-switcher {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-left: 8px;
+}
+.language-switcher button {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--muted-border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s, transform 0.12s;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.language-switcher button:hover {
+  background: var(--btn-hover-bg);
+  color: var(--text-color); /* đổi màu chữ khi hover */
+  transform: translateY(-2px);
+}
+
+
+/* Mobile: đặt sát nút theme */
+@media (max-width: 768px) {
+  .language-switcher {
+    position: absolute;
+    top: 50%;
+    right: 3.5rem; /* ngay trước nút theme */
+    transform: translateY(-50%);
+  }
+
+  .language-switcher button {
+    font-size: 1.2rem; /* icon/flag to hơn để dễ bấm */
+    padding: 6px;
+  }
+}

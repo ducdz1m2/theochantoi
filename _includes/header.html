@@ -1,6 +1,7 @@
 <header class="site-header">
   <!-- fontawesome (icon) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
 
   <div class="header-wrapper">
     <!-- hidden checkbox (hamburger toggle) -->
@@ -17,7 +18,7 @@
     <!-- nav (center) -->
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
-    {%- assign page_titles = site.pages | map: 'title' | compact %}
+    {%- assign page_titles = site.pages | map: 'title' | compact %} 
     {%- unless page_titles == empty %}
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <ul class="nav-items">
@@ -26,10 +27,17 @@
     </nav>
     {%- endunless %}
 
-    <!-- theme toggle (IMPORTANT: outside <nav>) -->
+    <!-- theme toggle -->
     <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" aria-pressed="false">
       <i class="fas fa-moon" aria-hidden="true"></i>
     </button>
+
+    <!-- language switcher -->
+<div class="language-switcher">
+  <button onclick="changeLanguage('vi')"><span class="fi fi-vn"></span></button>
+  <button onclick="changeLanguage('en')"><span class="fi fi-gb"></span></button>
+</div>
+
   </div>
 
   <!-- favicons / css / js -->

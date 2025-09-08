@@ -42,7 +42,7 @@ Chờ cho đến khi tải xong:
 
 Khi tải xong, window sẽ tự động thêm vào bộ phím để, bạn chỉ cần click vào bộ gõ (góc dưới bên phải) để mở và chọn bộ gõ tiếng Nhật:
 
-(Bạn cũng có thể sử dụng tổ hợp phím: `Window` + `Space` để chuyển nhanh bộ gõ)
+(Bạn cũng có thể sử dụng tổ hợp phím: `Windows` + `Space` để chuyển nhanh bộ gõ)
 
 <div style="text-align: center;">
   <img src="{{ 'assets/images/posts/cai-dat-bo-go-tieng-nhat/step5.png' | relative_url }}" alt="Cài đặt thành công">
@@ -56,4 +56,4 @@ Chuột phải vào và tùy chỉnh:
 
 Ok, như vậy ở bài này tui đã hướng dẫn anh em cách để cài đặt bộ gõ tiếng Nhật thành công. Cảm ơn anh em vì đã theo dõi~~~
 
-`ありがとうございます。`
+`Thank you very much.`
