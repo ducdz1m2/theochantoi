@@ -2,7 +2,7 @@
 layout: post
 title:  "Một số chức năng, mẹo vặt hữu ích khi mới bắt đầu với Ruby on rails"
 date:   2025-09-08 05:51:01 +0700
-categories: jekyll update
+categories: ["Ruby on Rails"]
 image: /assets/images/posts/meo-vat-ruby-on-rails.png
 author: Lê Ngọc Đức
 description: "Hướng dẫn một số cách tiện lợi để làm việc với ruby on rails, bootstrap5 cho người mới bắt đầu"

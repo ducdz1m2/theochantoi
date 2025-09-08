@@ -2,7 +2,7 @@
 layout: post
 title:  "Cú pháp viết blog với Jekyll"
 date:   2025-09-07 15:26:01 +0700
-categories: jekyll update
+categories: ["Khác"]
 author: Lê Ngọc Đức
 description: "Hướng dẫn cú pháp viết blog với Jekyll: highlight code, chèn file, chèn ảnh, danh sách, ..."
 tags: [jekyll, markdown, blog, seo]
