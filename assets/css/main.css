@@ -148,7 +148,7 @@ hr, .post-item { border-color: var(--muted-border); }
   z-index: 1003;
   flex-shrink: 0;
 }
-.theme-btn:hover { transform: translateY(-2px); background: var(--btn-hover-bg); }
+.theme-btn:hover { background: var(--btn-hover-bg); }
 
 /* =====================
    Responsive
@@ -358,7 +358,7 @@ h6 { font-size: 0.9rem; color: var(--muted-color); }
 .language-switcher button:hover {
   background: var(--btn-hover-bg);
   color: var(--text-color); /* đổi màu chữ khi hover */
-  transform: translateY(-2px);
+  
 }
 .language-switcher {
   position: relative;
