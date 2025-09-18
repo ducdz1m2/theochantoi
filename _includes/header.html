@@ -11,9 +11,9 @@
 
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
 
-    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign default_paths = site.pages | map: "path" | where_exp: "path", "path != 'index.html'" -%}
     {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
-    {%- assign page_titles = site.pages | map: 'title' | compact %} 
+    {%- assign page_titles = site.pages | map: 'title' | compact %}
     {%- unless page_titles == empty %}
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <ul class="nav-items">
@@ -47,59 +47,59 @@
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
 
   <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const switcher = document.querySelector(".language-switcher");
-  const toggleBtn = switcher.querySelector(".lang-toggle span.fi");
-  const menuItems = switcher.querySelectorAll(".lang-menu li");
+    document.addEventListener("DOMContentLoaded", function () {
+      const switcher = document.querySelector(".language-switcher");
+      const toggleBtn = switcher.querySelector(".lang-toggle span.fi");
+      const menuItems = switcher.querySelectorAll(".lang-menu li");
 
-  const langMap = {
-    'vi': 'vn',
-    'en': 'gb',
-    'ja': 'jp',
-    'ko': 'kr',
-    'fr': 'fr',
-    'de': 'de'
-  };
+      const langMap = {
+        'vi': 'vn',
+        'en': 'gb',
+        'ja': 'jp',
+        'ko': 'kr',
+        'fr': 'fr',
+        'de': 'de'
+      };
 
-  function updateFlag(lang) {
-    const flag = langMap[lang] || 'gb';
-    toggleBtn.className = `fi fi-${flag}`;
-  }
+      function updateFlag(lang) {
+        const flag = langMap[lang] || 'gb';
+        toggleBtn.className = `fi fi-${flag}`;
+      }
 
-  function selectLanguage(lang) {
-    updateFlag(lang);
-    changeLanguage(lang);
-    localStorage.setItem('selectedLang', lang); // lưu lại ngôn ngữ
-  }
+      function selectLanguage(lang) {
+        updateFlag(lang);
+        changeLanguage(lang);
+        localStorage.setItem('selectedLang', lang); // lưu lại ngôn ngữ
+      }
 
-  // Lấy ngôn ngữ lưu trữ trước tiên, nếu không có thì dùng navigator
-  let savedLang = localStorage.getItem('selectedLang');
-  let userLang = savedLang || (navigator.language || navigator.userLanguage).slice(0,2);
-  if (!langMap[userLang]) userLang = 'en';
-  selectLanguage(userLang);
+      // Lấy ngôn ngữ lưu trữ trước tiên, nếu không có thì dùng navigator
+      let savedLang = localStorage.getItem('selectedLang');
+      let userLang = savedLang || (navigator.language || navigator.userLanguage).slice(0, 2);
+      if (!langMap[userLang]) userLang = 'en';
+      selectLanguage(userLang);
 
-  // Toggle menu
-  const toggleButton = switcher.querySelector(".lang-toggle");
-  toggleButton.addEventListener("click", () => {
-    switcher.classList.toggle("open");
-  });
+      // Toggle menu
+      const toggleButton = switcher.querySelector(".lang-toggle");
+      toggleButton.addEventListener("click", () => {
+        switcher.classList.toggle("open");
+      });
 
-  // Click ra ngoài đóng menu
-  document.addEventListener("click", (e) => {
-    if (!switcher.contains(e.target)) {
-      switcher.classList.remove("open");
-    }
-  });
+      // Click ra ngoài đóng menu
+      document.addEventListener("click", (e) => {
+        if (!switcher.contains(e.target)) {
+          switcher.classList.remove("open");
+        }
+      });
 
-  // Chọn ngôn ngữ từ menu
-  menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-      const lang = item.getAttribute("data-lang");
-      selectLanguage(lang);
-      switcher.classList.remove("open");
+      // Chọn ngôn ngữ từ menu
+      menuItems.forEach(item => {
+        item.addEventListener("click", () => {
+          const lang = item.getAttribute("data-lang");
+          selectLanguage(lang);
+          switcher.classList.remove("open");
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 
 </header>
